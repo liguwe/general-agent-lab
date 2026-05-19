@@ -37,14 +37,14 @@ rg --no-ignore "tool" opencode
 优先把研究结果沉淀到这些位置：
 
 ```text
-~/832/os/notes/ # 长期文章和研究笔记，在 Obsidian 中阅读和维护
+README.md # notes / 文章索引，按最新在前倒序维护所有链接
 prototypes/
   mini-code-agent-cli/
 ```
 
-后面所有文章都放到 `~/832/os/notes`，不要在本仓库新建 `notes/` 或 `assets/` 来维护正文和图片。
+这个工程最终交付的不是一份大报告，而是一批持续累积的 notes / 文章。每写完一篇相关文章，都要把链接补进 `README.md` 的 `Notes` 区，并保持最新文章在最上面。README 是这个工程的研究产出索引，不只是一份项目介绍。
 
-本仓库的 README 只维护已经公开发布的文章链接，使用倒序列表，并带上文章编号，例如：
+README 中的链接使用倒序列表，并尽量带上文章编号，例如：
 
 ```markdown
 ## Notes
@@ -53,7 +53,7 @@ prototypes/
 - [129. codex-cli 工程概览及技术栈分析](https://liguwe.site/blog/129)
 ```
 
-笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。图片等附件跟随 Obsidian 笔记放到 `~/832/os/assets/files/`。
+笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。
 
 ## 阅读方式
 
