@@ -1,57 +1,47 @@
 # code-agent-lab
 
-这个仓库不是先来写一个完整的 CLI，也不是一上来就做一个 Codex Desktop。
+研究 Code Agent CLI 架构的笔记和实验仓库。最终目标是理解并对标 Codex 这类官方产品级 Code Agent，但先通过分阶段阅读和对照，把 CLI 形态的核心骨架拆清楚。
 
-它更像一个长期的学习现场：我想借助 AI，把 code agent CLI 这种产品形态彻底拆明白。先看清楚 `codex-cli`、`opencode`、`gemini-cli` 这类工具到底是怎么搭起来的，再决定自己要复用什么、删掉什么、重写什么。
+## 边界
 
-等 CLI 模式真的搞懂以后，下一步才考虑做一个 Codex Desktop 的 GUI 版本。
+本仓库只以 Codex 和 opencode 作为 Code Agent CLI 的主要研究样本。其他工具只在必要时作为旁证，不做系统研究。
 
-## 划重点
+Codex 桌面端是最终对标对象，Codex CLI 是第一阶段主读样本。opencode 是开放产品型对照，用来帮助看清同一类问题的不同实现方式。
 
-我现在关心的不是“再造一个聊天壳子”，也不是马上做一个漂亮界面，而是搞清楚几个问题：
+Claude Code 不作为源码主线，但会作为产品逆向观察对象：重点看它在交互、权限、计划、执行反馈和长期会话体验上怎么做。后续可参考外部流传的历史版本，作为产品和架构线索
 
-- 一个 Agent CLI 的最小骨架是什么。
-- 模型调用、工具调用、上下文管理、文件修改、权限确认，分别放在哪一层。
-- 为什么有些 CLI 用起来稳，有些 CLI 只是把 API 包了一层。
-- CLI 模式和 GUI 模式之间，哪些能力是共用的，哪些只是交互形态不同。
-- 如果我自己从 0 写，哪些地方必须一开始就设计清楚，哪些地方可以先土一点。
+Codex 桌面端和 Cursor 是长期使用的两个 Code Agent，会和我一起探索这个方向；但本仓库的源码主线仍然是 Codex CLI 和 opencode。日常看代码主要使用 Zed，Cursor 在这里主要作为 Agent 协作者。
 
-## 研究对象
+## 路线
 
-先看这些：
+1. Phase 1：主读 Codex CLI，抽出工程骨架。
+2. Phase 2：用 opencode 对照同一张架构表，避免只学到 Codex 的表层形态。
+3. Phase 3：总结可复用模式，做一个 mini code agent CLI 原型。
+4. Phase 4：回看 Claude / Codex 桌面端的产品形态，判断 CLI 到 GUI 的演进方式。
+5. Phase 5：回到 Codex 桌面端，对标它的产品能力和工程取舍。
 
-- `codex-cli`
-- `opencode`
-- `gemini-cli`
+## 关注问题
 
-后面可能会补充别的项目，但不会为了凑列表而凑列表。每加一个对象，都要回答一个问题：它在 code agent 这件事上，有什么值得拆的结构。
+- CLI / TUI 入口怎么组织
+- Session 和 Context 怎么管理
+- Model Client 和 Agent Loop 怎么串起来
+- Tool Registry、Shell、File、Patch 怎么设计
+- Approval、Sandbox、权限确认怎么落地
+- Diff、测试结果、日志和持久化怎么反馈给用户
 
-## 记录方式
+## 目录
 
-这个仓库里的内容会尽量保持三类：
+```text
+notes/
+  codex/
+  opencode/
+  claude-code/
+  patterns/
 
-- `notes/`：读源码、读架构、读交互之后留下的判断。
-- `src/`：真正开始写自己的 code agent runtime 或 CLI 时再放代码。
-- `experiments/`：临时验证某个想法，比如命令解析、流式输出、工具调用协议、权限交互。
+prototypes/
+  mini-code-agent-cli/
+```
 
-现在先不急着把目录全建出来。等有真实内容的时候再建，不为了显得完整而补空架子。
+## 当前下一步
 
-## 我想拆清楚的模块
-
-- CLI 入口：命令怎么组织，交互模式怎么进。
-- 会话模型：一轮对话、一个任务、一个 workspace 怎么表达。
-- 上下文：文件、命令输出、历史消息、系统规则怎么进入模型。
-- 工具系统：工具怎么注册、怎么调用、怎么返回结构化结果。
-- 权限系统：什么时候直接做，什么时候必须问人。
-- 编辑系统：怎么让模型改文件，同时能被人审。
-- 运行系统：命令怎么执行，stdout/stderr 怎么进上下文。
-- 记忆系统：什么值得长期保存，什么只是当前任务的噪音。
-- GUI 可能性：哪些 CLI 能力以后可以自然搬到 desktop 里，哪些需要重新设计。
-
-## 当前原则
-
-先读真实项目，再写自己的抽象。
-
-先把 code agent CLI 模式搞懂，再决定要不要做 GUI。
-
-能从已有工具里学到的，不急着发明新词。等我真的看清楚几个实现之后，再把这个 README 改成更稳定的路线图。
+Phase 1：Read Codex CLI and extract the core Code Agent CLI architecture.
