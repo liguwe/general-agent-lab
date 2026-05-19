@@ -12,7 +12,6 @@
 
 - `codex/`：OpenAI Codex 源码，本仓库第一阶段主读对象。
 - `opencode/`：anomalyco/opencode 源码，用来对照另一种开放产品型实现。
-- Claude Code：不作为源码主线，只作为产品逆向观察对象，重点看交互、权限、计划、执行反馈和长期会话体验。
 - Codex 桌面端和 Cursor：长期使用的两个 Code Agent，会和我一起探索这个方向；但它们不是本仓库的源码主线。日常看代码主要使用 Zed，Cursor 在这里主要作为 Agent 协作者。
 
 ## 本地目录约定
@@ -39,8 +38,6 @@ rg --no-ignore "tool" opencode
 notes/
   codex/
   opencode/
-  claude-code/
-  cursor/
   patterns/
 
 prototypes/
@@ -66,7 +63,7 @@ prototypes/
 
 - 小步推进：一次只拆一个主题，不要同时展开太多方向。
 - 证据优先：先读真实源码、命令输出或产品行为，再总结。
-- 保持边界：主线是 Codex CLI 和 opencode，对 Cursor / Claude Code 的观察只作为参照。
+- 保持边界：主线是 Codex CLI 和 opencode，对 Cursor 的观察只作为 Agent 协作参照。
 - 少做抽象空话：尽量落到具体模块、数据结构、调用链、交互细节。
 - 不改无关文件：如果只是写笔记，不要顺手格式化或重构源码。
 
