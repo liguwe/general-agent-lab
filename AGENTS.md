@@ -35,16 +35,13 @@ rg --no-ignore "tool" opencode
 优先把研究结果沉淀到这些位置：
 
 ```text
-notes/
-  codex/
-  opencode/
-  patterns/
-
+notes/          # 平铺笔记，命名自定（如 0. codex-cli 技术栈分析.md）
+assets/         # 笔记引用的图片等资源
 prototypes/
   mini-code-agent-cli/
 ```
 
-如果目录还不存在，可以按需创建。笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。
+`notes/` 不要按 codex、opencode 等再分子目录。笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。插图放 `assets/`，在笔记里用 `../assets/...` 引用。
 
 ## 阅读方式
 
