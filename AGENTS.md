@@ -1,6 +1,6 @@
 # Agent 协作说明
 
-这个仓库用于和 Codex 桌面端、Cursor 一起研究 Code Agent CLI 和 opencode 的工程架构。进入本仓库后，先读 `README.md`，再读本文件。
+这个仓库是 `~/832` workspace 的一部分，用于和 Codex 桌面端、Cursor 一起研究 Code Agent CLI 和 opencode 的工程架构。进入本仓库后，先读 `README.md`，再读本文件；需要 workspace 总体边界时，再读 `/Users/liguwe/832/README.md` 和 `/Users/liguwe/832/AGENTS.md`。
 
 ## 当前目标
 
@@ -30,18 +30,30 @@ rg --no-ignore "approval" codex
 rg --no-ignore "tool" opencode
 ```
 
+`~/832` 的根仓库会通过 `.gitignore` 忽略本仓库目录；不要把本仓库源码、`codex/` 或 `opencode/` 混入 832 根仓库提交。
+
 ## 输出物优先级
 
 优先把研究结果沉淀到这些位置：
 
 ```text
-notes/          # 平铺笔记，命名自定（如 0. codex-cli 技术栈分析.md）
-assets/         # 笔记引用的图片等资源
+~/832/os/notes/ # 长期文章和研究笔记，在 Obsidian 中阅读和维护
 prototypes/
   mini-code-agent-cli/
 ```
 
-`notes/` 不要按 codex、opencode 等再分子目录。笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。插图放 `assets/`，在笔记里用 `../assets/...` 引用。
+后面所有文章都放到 `~/832/os/notes`，不要在本仓库新建 `notes/` 或 `assets/` 来维护正文和图片。
+
+本仓库的 README 只维护已经公开发布的文章链接，使用倒序列表，并带上文章编号，例如：
+
+```markdown
+## Notes
+
+- [130. opencode 工程概览与技术栈分析](https://liguwe.site/blog/130)
+- [129. codex-cli 工程概览及技术栈分析](https://liguwe.site/blog/129)
+```
+
+笔记要短而清楚，尽量写“发现了什么、证据在哪、这对 mini agent 有什么启发”，不要只摘抄源码。图片等附件跟随 Obsidian 笔记放到 `~/832/os/assets/files/`。
 
 ## 阅读方式
 
