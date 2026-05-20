@@ -1,52 +1,47 @@
-# code-agent-lab
+# general-agent-lab
 
-`~/832` workspace 里的 Code Agent CLI 研究工程，也是当前阶段的主任务工程。
+`~/832` workspace 里的通用 Agent 实验台，也是未来一段时间的唯一主线。
 
-当前主线是 Codex CLI 和 opencode：先通过分阶段源码阅读和对照，把 CLI 形态的核心骨架拆清楚，再沉淀可复用模式和小原型。
+CLI 不是终局，是入口。当前先主读 Codex CLI，用 opencode 做对照，把 CLI 形态的核心骨架拆清楚；中间沉淀短 notes 和能跑的 `mini-code-agent-cli`；最后回到 `General Agent Product`，回答通用 Agent 产品到底怎么做。
 
-这个工程的主要产出是一批持续累积的 notes / 文章。README 的 `Notes` 区负责维护所有相关文章链接，并按最新在前倒序排列。
+这个工程的主要产出是一批持续累积的 notes / 文章，以及一个能跑的小原型。README 的 `Notes` 区负责维护所有相关文章链接，并按最新在前倒序排列。
 
 ## 边界
 
-本仓库是 `~/832/code-agent-lab` 下的独立子仓库，保留自己的 Git 历史，不并入 `~/832` 根仓库。`~/832` 根目录只维护 workspace 规则、命令和自动化入口。
+本仓库是 `~/832/general-agent-lab` 下的独立子仓库，保留自己的 Git 历史，不并入 `~/832` 根仓库。`~/832` 根目录只维护 workspace 规则、命令和自动化入口。
 
-本仓库只以 Codex CLI 和 opencode 作为 Code Agent CLI 的主要研究样本。其他工具只在必要时作为旁证，不做系统研究。
+本仓库不是泛泛的 Agent 生态综述，也不追逐所有工具。当前研究入口只看 Codex CLI 和 opencode：Codex CLI 是第一阶段主读样本，opencode 是开放产品型对照，用来帮助看清同一类问题的不同实现方式。
 
-Codex 桌面端是最终对标对象，Codex CLI 是第一阶段主读样本。opencode 是开放产品型对照，用来帮助看清同一类问题的不同实现方式。
-
-Codex 桌面端和 Cursor 是长期使用的两个 Code Agent，会和我一起探索这个方向；但本仓库的源码主线仍然是 Codex CLI 和 opencode。日常看代码主要使用 Zed，Cursor 在这里主要作为 Agent 协作者。
+Codex Desktop 是重要对标对象，也是当前看到的顶级模型超级产品形态；但它不是现在一上来研究 GUI 的理由。先把 CLI 模式吃透，再回看 Codex Desktop、Cursor、Claude Code 这类日常 Agent 产品，判断 CLI 到桌面端 / 编辑器协作形态的演进方式。
 
 `codex/` 和 `opencode/` 是本地 clone 的上游源码上下文，已被 `.gitignore` 忽略，不进入本仓库提交。
 
-## 路线
+## 路径
 
-1. Phase 1：主读 Codex CLI，抽出工程骨架。
-2. Phase 2：用 opencode 对照同一张架构表，避免只学到 Codex 的表层形态。
-3. Phase 3：总结可复用模式，做一个 mini code agent CLI 原型。
-4. Phase 4：回看 Codex 桌面端和日常 Agent 协作体验，判断 CLI 到桌面端 / 编辑器协作形态的演进方式。
-5. Phase 5：回到 Codex 桌面端，对标它的产品能力和工程取舍。
+这条主线以 [128. 接下来的主线：general-agent-lab](https://liguwe.site/blog/128) 为准：
 
-## 关注问题
+- 先读：主读 `Codex CLI`，用 `opencode` 做对照。
+- 再做：把可复用模式塞进 `mini-code-agent-cli`，一定要能跑通。
+- 最后回到 `general-agent-lab`：对照 `Codex Desktop` 等日常 Agent 产品，回答怎么做 `General Agent Product`。
 
-- CLI / TUI 入口怎么组织
-- Session 和 Context 怎么管理
-- Model Client 和 Agent Loop 怎么串起来
-- Tool Registry、Shell、File、Patch 怎么设计
-- Approval、Sandbox、权限确认怎么落地
-- Diff、测试结果、日志和持久化怎么反馈给用户
-
-## 目录
+## 结果
 
 ```bash
 prototypes/                 # 用小原型验证架构理解
   mini-code-agent-cli/
 ```
 
+- 第一类结果：notes。每篇只回答一个主题：发现了什么、证据在哪、对 mini agent 有什么启发。
+- 第二类结果：`mini-code-agent-cli` 原型。它不用大，但必须能跑。
+
+这里不是资料馆，是实验台，是动手。没有进入原型和判断的阅读，就是耗散。
+
 ## Notes
 
 - [130. opencode 工程概览与技术栈分析](https://liguwe.site/blog/130)
 - [129. codex-cli 工程概览及技术栈分析](https://liguwe.site/blog/129)
+- [128. 接下来的主线：general-agent-lab](https://liguwe.site/blog/128)
 
 ## 当前下一步
 
-Phase 1：Read Codex CLI and extract the core Code Agent CLI architecture.
+先跑通 `mini-code-agent-cli` 的最小骨架，同时继续主读 Codex CLI、用 opencode 对照。
