@@ -38,6 +38,7 @@ prototypes/                 # 用小原型验证架构理解
 
 ## Notes
 
+- [135. 播客：探秘 Claude Code，搞懂 Agent Harness](https://liguwe.site/blog/135)
 - [130. opencode 工程概览与技术栈分析](https://liguwe.site/blog/130)
 - [129. codex-cli 工程概览及技术栈分析](https://liguwe.site/blog/129)
 - [128. 接下来的主线：general-agent-lab](https://liguwe.site/blog/128)
