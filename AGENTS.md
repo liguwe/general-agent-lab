@@ -40,16 +40,20 @@ rg --no-ignore "tool" opencode
 优先把研究结果沉淀到这些位置：
 
 ```text
-README.md # notes / 文章索引，按最新在前倒序维护所有链接
+README.md # Docs / Notes 索引；Docs 放本地工程说明，Notes 放研究文章
 prototypes/
   mini-code-agent-cli/
 ```
 
-这个工程最终交付的不是一份大报告，而是一批持续累积的 notes / 文章，以及一个能跑的小原型。每写完一篇相关文章，都要把链接补进 `README.md` 的 `Notes` 区，并保持最新文章在最上面。README 是这个工程的研究产出索引，不只是一份项目介绍。
+这个工程最终交付的不是一份大报告，而是一批持续累积的 notes / 文章，以及一个能跑的小原型。每写完一篇相关文章，都要把链接补进 `README.md` 的 `Notes` 区，并保持最新文章在最上面。本地工程说明放 `README.md` 的 `Docs` 区，不放 `Notes`。README 是这个工程的研究产出索引，不只是一份项目介绍。
 
 README 中的链接使用倒序列表，并尽量带上文章编号，例如：
 
 ```markdown
+## Docs
+
+- [1. codex 项目目录说明](docs/1.%20codex%20项目目录说明.md)
+
 ## Notes
 
 - [130. opencode 工程概览与技术栈分析](https://liguwe.site/blog/130)

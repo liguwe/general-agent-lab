@@ -4,7 +4,7 @@
 
 CLI 不是终局，是入口。当前先主读 Codex CLI，用 opencode 做对照，把 CLI 形态的核心骨架拆清楚；中间沉淀短 notes 和能跑的 `mini-code-agent-cli`；最后回到 `General Agent Product`，回答通用 Agent 产品到底怎么做。
 
-这个工程的主要产出是一批持续累积的 notes / 文章，以及一个能跑的小原型。README 的 `Notes` 区负责维护所有相关文章链接，并按最新在前倒序排列。
+这个工程的主要产出是一批持续累积的 notes / 文章，以及一个能跑的小原型。README 的 `Docs` 区负责维护本地工程说明，`Notes` 区负责维护研究 notes / 文章链接，并按最新在前倒序排列。
 
 ## 边界
 
@@ -36,9 +36,12 @@ prototypes/                 # 用小原型验证架构理解
 
 这里不是资料馆，是实验台，是动手。没有进入原型和判断的阅读，就是耗散。
 
+## Docs
+
+- [1. codex 项目目录说明](docs/1.%20codex%20项目目录说明.md)
+
 ## Notes
 
-- [0. codex 项目目录说明](docs/0.%20codex%20项目目录说明.md)
 - [135. 播客：探秘 Claude Code，搞懂 Agent Harness](https://liguwe.site/blog/135)
 - [130. opencode 工程概览与技术栈分析](https://liguwe.site/blog/130)
 - [129. codex-cli 工程概览及技术栈分析](https://liguwe.site/blog/129)
