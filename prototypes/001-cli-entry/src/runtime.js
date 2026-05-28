@@ -74,34 +74,34 @@ function parseRootArgs(argv) {
 
 function renderHeader(mode, root) {
   const profile = root.profile ?? "default";
-  const config = root.config.length ? root.config.join(", ") : "none";
-  return `[mini-codex] mode=${mode} profile=${profile} config=${config}`;
+  const config = root.config.length ? root.config.join(", ") : "无";
+  return `[mini-codex] 模式=${mode} 配置=${profile} 覆盖=${config}`;
 }
 
 function runInteractive(root) {
   const prompt = root.prompt.join(" ").trim();
   console.log(renderHeader("interactive-tui", root));
-  console.log("route: no subcommand -> interactive session");
-  console.log(`prompt: ${prompt || "(empty)"}`);
+  console.log("路由：无子命令 -> 进入交互模式");
+  console.log(`输入：${prompt || "(空)"}`);
 }
 
 // 无 subcommand 对应 Codex 的默认 TUI；exec/review 对应非交互模式。
 function runExec(root, args) {
   const prompt = args.join(" ").trim();
   console.log(renderHeader("exec", root));
-  console.log("route: exec -> non-interactive agent run");
-  console.log(`prompt: ${prompt || "(empty)"}`);
+  console.log("路由：exec -> 非交互模式执行");
+  console.log(`输入：${prompt || "(空)"}`);
 }
 
 function runReview(root, args) {
   console.log(renderHeader("review", root));
-  console.log("route: review -> specialized exec command");
-  console.log(`args: ${args.length ? args.join(" ") : "(empty)"}`);
+  console.log("路由：review -> 特化的 exec 命令");
+  console.log(`参数：${args.length ? args.join(" ") : "(空)"}`);
 }
 
 function runLogin(root, args) {
   console.log(renderHeader("login", root));
-  console.log(`route: login -> auth management ${args.join(" ")}`.trim());
+  console.log(`路由：login -> 认证管理 ${args.join(" ")}`.trim());
 }
 
 function runCompletion(args) {

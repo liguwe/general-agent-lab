@@ -1,0 +1,14 @@
+{
+  "name": "prototype-002-agent-loop",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "mini-codex-agent": "./bin/mini-codex-agent.js"
+  },
+  "scripts": {
+    "demo": "node ./bin/mini-codex-agent.js \"你好，请介绍一下你自己\"",
+    "demo:tool": "node ./bin/mini-codex-agent.js \"帮我读一下 src/main.js 的内容\"",
+    "test": "node ./test/agent-loop.test.js"
+  }
+}

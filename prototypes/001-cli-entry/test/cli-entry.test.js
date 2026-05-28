@@ -23,18 +23,18 @@ function run(args) {
   // 无 subcommand 时进入 mock interactive TUI，并继承 root flags。
   const result = run(["--profile", "daily", "-c", "model=mock", "hello"]);
   assert.equal(result.status, 0);
-  assert.match(result.stdout, /mode=interactive-tui/);
-  assert.match(result.stdout, /profile=daily/);
-  assert.match(result.stdout, /prompt: hello/);
+  assert.match(result.stdout, /模式=interactive-tui/);
+  assert.match(result.stdout, /配置=daily/);
+  assert.match(result.stdout, /输入：hello/);
 }
 
 {
   // exec 子命令进入非交互路径，同时保留 root config。
   const result = run(["-c", "sandbox=workspace-write", "exec", "summarize cwd"]);
   assert.equal(result.status, 0);
-  assert.match(result.stdout, /mode=exec/);
-  assert.match(result.stdout, /config=sandbox=workspace-write/);
-  assert.match(result.stdout, /route: exec -> non-interactive agent run/);
+  assert.match(result.stdout, /模式=exec/);
+  assert.match(result.stdout, /覆盖=sandbox=workspace-write/);
+  assert.match(result.stdout, /路由：exec -> 非交互模式执行/);
 }
 
 {
