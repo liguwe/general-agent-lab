@@ -1,0 +1,8 @@
+[submodule "codex"]
+	path = codex
+	url = git@github.com:liguwe/codex.git
+	branch = main
+[submodule "opencode"]
+	path = opencode
+	url = git@github.com:liguwe/opencode.git
+	branch = dev
