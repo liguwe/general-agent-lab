@@ -2,9 +2,9 @@
 
 `~/832` workspace 里的通用 Agent 实验台，也是未来一段时间的唯一主线。
 
-CLI 不是终局，是入口。当前先主读 Codex CLI，用 opencode 做对照，把 CLI 形态的核心骨架拆清楚；中间沉淀短 notes 和能跑的 `mini-code-agent-cli`；最后回到 `General Agent Product`，回答通用 Agent 产品到底怎么做。
+CLI 不是终局，是入口。当前先主读 Codex CLI，用 opencode 做对照，把 CLI 形态的核心骨架拆清楚；中间沉淀短 notes 和每日最小可运行原型；最后回到 `General Agent Product`，回答通用 Agent 产品到底怎么做。
 
-这个工程的主要产出是一批持续累积的 notes / 文章，以及一个能跑的小原型。README 的 `Docs` 区负责维护本地工程说明，`Notes` 区负责维护研究 notes / 文章链接，并按最新在前倒序排列。
+这个工程的主要产出是一批持续累积的 notes / 文章、每天一个最小可运行原型，以及最终沉淀出来的 `mini-code-agent-cli` 汇总骨架。README 的 `Docs` 区负责维护本地工程说明，`Notes` 区负责维护研究 notes / 文章链接，并按最新在前倒序排列。
 
 ## 边界
 
@@ -21,18 +21,20 @@ Codex Desktop 是重要对标对象，也是当前看到的顶级模型超级产
 这条主线以 [128. 接下来的主线：general-agent-lab](https://liguwe.site/blog/128) 为准：
 
 - 先读：主读 `Codex CLI`，用 `opencode` 做对照。
-- 再做：把可复用模式塞进 `mini-code-agent-cli`，一定要能跑通。
+- 再做：每天拆一层，做一个最小可运行原型，成熟后再吸收到 `mini-code-agent-cli`。
 - 最后回到 `general-agent-lab`：对照 `Codex Desktop` 等日常 Agent 产品，回答怎么做 `General Agent Product`。
 
 ## 结果
 
 ```bash
 prototypes/                 # 用小原型验证架构理解
+  001-cli-entry/
   mini-code-agent-cli/
 ```
 
 - 第一类结果：notes。每篇只回答一个主题：发现了什么、证据在哪、对 mini agent 有什么启发。
-- 第二类结果：`mini-code-agent-cli` 原型。它不用大，但必须能跑。
+- 第二类结果：每日最小可运行原型。目录命名为 `NNN-<topic>`，从 `001` 递增，例如 `001-cli-entry`。
+- 第三类结果：`mini-code-agent-cli` 汇总骨架。每日原型先独立跑通，成熟后再沉淀进去。
 
 这里不是资料馆，是实验台，是动手。没有进入原型和判断的阅读，就是耗散。
 
@@ -50,4 +52,4 @@ prototypes/                 # 用小原型验证架构理解
 
 ## 当前下一步
 
-先跑通 `mini-code-agent-cli` 的最小骨架，同时继续主读 Codex CLI、用 opencode 对照。
+从 `prototypes/001-cli-entry/` 开始，每天产出一个最小可运行原型，同时继续主读 Codex CLI、用 opencode 对照。

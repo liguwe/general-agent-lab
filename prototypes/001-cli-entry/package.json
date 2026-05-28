@@ -1,0 +1,16 @@
+{
+  "name": "prototype-001-cli-entry",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "mini-codex": "./bin/mini-codex.js"
+  },
+  "scripts": {
+    "demo": "node ./bin/mini-codex.js --profile daily -c model=mock",
+    "demo:exec": "node ./bin/mini-codex.js --profile daily -c sandbox=workspace-write exec \"summarize cwd\"",
+    "demo:review": "node ./bin/mini-codex.js -c model=mock review --base main",
+    "demo:debug": "node ./bin/mini-codex.js debug prompt-input \"hello\"",
+    "test": "node ./test/cli-entry.test.js"
+  }
+}
