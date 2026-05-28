@@ -40,6 +40,7 @@ prototypes/                 # 用小原型验证架构理解
 
 ## Docs
 
+- [3. CLI 入口层：为什么用 Node shim 包原生二进制](docs/3.%20CLI%20入口层：为什么用%20Node%20shim%20包原生二进制.md)
 - [2. submodule 工作流说明](docs/2.%20submodule%20工作流说明.md)
 - [1. codex 项目目录说明](docs/1.%20codex%20项目目录说明.md)
 
