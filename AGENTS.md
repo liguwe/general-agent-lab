@@ -6,31 +6,32 @@
 
 `general-agent-lab` 是未来一段时间的唯一主线。CLI 不是终局，是入口。
 
-当前先把 Codex CLI 和 opencode 这两个源码样本读清楚，抽出 Code Agent CLI 的核心骨架；每天做一个最小可运行原型，成熟后再把可复用模式沉淀进 `mini-code-agent-cli` 汇总骨架。最终要回答的是：怎么做 `General Agent Product`。
+当前先把 Codex CLI、opencode 和 gemini-cli 这三个源码样本读清楚，抽出 Code Agent CLI 的核心骨架；每天做一个最小可运行原型，成熟后再把可复用模式沉淀进 `mini-code-agent-cli` 汇总骨架。最终要回答的是：怎么做 `General Agent Product`。
 
-不要一上来做大而全的竞品分析，也不要把所有 AI 编程工具都纳入主线。这个仓库的重点是源码阅读、架构拆解、对照表、短 notes 和每日最小可运行原型。
+不要一上来做大而全的竞品分析，也不要把所有 AI 编程工具都纳入主线。这个仓库的重点是源码阅读、架构拆解、三向对照表、短 notes 和每日最小可运行原型。
 
 ## 研究边界
 
-- `codex/`：OpenAI Codex 源码，本仓库第一阶段主读对象。
-- `opencode/`：anomalyco/opencode 源码，用来对照另一种开放产品型实现。
+- `codex/`：OpenAI Codex 源码（Rust），本仓库第一阶段主读对象，代表闭源产品的 CLI 实现。
+- `opencode/`：anomalyco/opencode 源码（TypeScript/Bun），用来对照另一种开放产品型实现。
+- `gemini-cli/`：Google Gemini CLI 源码（TypeScript/Node.js），作为第三个样本，代表另一种大厂 CLI 实现路径，和 Codex/opencode 形成三向对照。
 - Codex Desktop：重要对标对象，但不是现在一上来研究 GUI 的理由。
 - Cursor、Claude Code：日常 Agent 使用经验来源，只在具体问题上作为产品判断旁证。
 
 ## 本地目录约定
 
-`codex/` 和 `opencode/` 是源码阅读上下文，以 Git submodule 形式接入本仓库。主工程只记录 submodule 指针；源码更新、少量贴近源码的说明文档，提交到对应 fork 后再更新主工程指针。
+`codex/` 和 `opencode/` 是源码阅读上下文，以 Git submodule 形式接入本仓库。`gemini-cli/` 为直接 fork 副本（非 submodule），用来做源码 patch 实验和配置对比。主工程只记录 submodule 指针和 fork 状态；源码更新、少量贴近源码的说明文档，提交到对应 fork 后再更新主工程指针。
 
 因此：
 
-- 不要把这两个目录的源码内容提交到本仓库，只提交 submodule 指针。
+- 不要把这三个目录的源码内容提交到本仓库，只提交 submodule 指针（codex/opencode）和 gemini-cli fork 的直接文件变更。
 - 不要随手修改上游源码；除非任务明确要求做实验 patch。
 - 搜索源码时可以直接指定目录，例如：
 
 ```bash
-rg "Agent" codex opencode
-rg "approval" codex
-rg "tool" opencode
+rg "Agent" codex opencode gemini-cli
+rg "approval" codex gemini-cli
+rg "tool" opencode gemini-cli
 ```
 
 `~/832` 的根仓库会通过 `.gitignore` 忽略本仓库目录；不要把本仓库源码、`codex/` 或 `opencode/` 混入 832 根仓库提交。
@@ -84,13 +85,13 @@ README 中的链接使用倒序列表，并尽量带上文章编号，例如：
 - Diff、测试结果、日志和持久化如何反馈给用户。
 - 这些工程模式对通用 Agent 产品有什么启发。
 
-对每个主题，尽量同时给出 Codex 和 opencode 的对照。不要只写结论，要标出关键文件路径和函数名。
+对每个主题，尽量同时给出 Codex、opencode 和 gemini-cli 的三向对照。不要只写结论，要标出关键文件路径和函数名。
 
 ## 协作原则
 
 - 小步推进：一次只拆一个主题，不要同时展开太多方向。
 - 证据优先：先读真实源码、命令输出或产品行为，再总结。
-- 保持边界：当前入口是 Codex CLI 和 opencode，其他工具只在具体问题上作为旁证。
+- 保持边界：当前入口是 Codex CLI、opencode 和 gemini-cli，其他工具只在具体问题上作为旁证。
 - 原型优先：每天至少产出一个最小可运行原型；没有进入原型和判断的阅读，就是耗散。
 - 每日切片：一次只拆一层，先能跑，再沉淀文档；不要把还没验证过的想法直接堆进 `mini-code-agent-cli`。
 - 少做抽象空话：尽量落到具体模块、数据结构、调用链、交互细节。
